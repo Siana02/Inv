@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+<header>
+      <div class="header-content">                                                              <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
+        <nav>
+<a href="index.html" class="nav-button">home</a>
+          <a href="about-us.html" class="nav-button">About us</a>
+          <a href="contact.html" class="nav-button">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+    <section class="auth-section">
+        <div class="auth-container">
+            <h2>Sign Up</h2>
+            <form action="/register" method="post" class="auth-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </section>
+</body>
+</html>

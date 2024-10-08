@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Expenses</title>
+    <link rel="stylesheet" href="editexpense.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
+            <nav>
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="dashboard.html" class="nav-button">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="form-section">
+        <h2>Edit Expense</h2>
+        <form id="edit-expense-form">
+            <label for="title">Expense Title</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </section>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const expenseId = urlParams.get('id'); // Get the expense ID from the URL
+
+        document.getElementById('edit-expense-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const amount = document.getElementById('amount').value;
+
+            const response = await fetch(`/expenses/${expenseId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem('token') // JWT token stored in local storage
+                },
+                body: JSON.stringify({ title, amount })
+            });
+
+            const result = await response.text();
+            alert(result);
+            window.location.href = 'dashboard.html'; // Redirect back to dashboard
+        });
+    </script>
+</body>
+</html>

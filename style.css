@@ -1,0 +1,513 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat Alternates", sans-serif;
+  background-color: Black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Popup Notification */
+.popup-notification {
+  width: 100%;
+  background-color: White;
+  color: black;
+  text-align: center;
+  padding: 3px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+/* Background Container */
+.background-container {
+  background: url('/assets/images/Heroimage.jpg') no-repeat center center;
+  background-size: cover;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header */
+header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  animation: rotateLogo 6s infinite linear;
+}
+
+/* Keyframes for rotating the logo */
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Navigation */
+.nav-button {
+  margin-left: 20px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #transparent;
+  padding: 10px 15px;
+  border-radius: 40px;
+}
+
+.nav-button:hover {
+  background-color: #005bb5;
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 70vh; /* Ensures the hero section takes the full height of the screen */
+  text-align: center;
+  color: white;
+}
+
+.hero h2 {
+  font-family: "Mohave", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero .highlight {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #0073e6;
+  font-size: 50px;
+}
+
+.hero p {
+  font-family: "New Amsterdam", sans-serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.hero .btn {
+  margin: 20px 10px;
+  background-color: #0073e6;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #005bb5;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .hero .highlight {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .nav-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+
+
+.features-section {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  justify-content: flex-end; /* Spreads items evenly with space between */
+  padding: 20px;
+  background-color: #000; /* Black background for the grid section */
+  max-width: 800px;
+  height: 40vh; /* Fixed height */
+  overflow: hidden; /* Hide overflow */
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff; /* White background for the grid items */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Floating shadow effect */
+  width: calc(50% - 10px); /* Each item takes half the width minus the gap */
+  height: calc(50% - 10px); /* Each item takes half the height minus the gap */
+  margin: 5px; /* Space between items */
+  transition: box-shadow 0.3s ease; /* Transition for hover effect */
+}
+
+.icon-item:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Shadow effect on hover */
+}
+
+.icon-item span {
+  font-size: 50px; /* Icon size */
+  color: #0073e6; /* Blue color for the icons */
+  margin-bottom: 15px;
+}
+
+.icon-item p {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 480px) {
+  .icon-item {
+    width: 100%; /* Full width for small screens */
+    height: auto; /* Height adjusts naturally */
+    margin: 10px 0; /* Margin between items */
+  }
+}
+.brand-section {
+  display: flex; /* Aligns image and info side by side */
+  justify-content: space-between; /* Spaces out the items */
+  padding: 40px; /* Padding around the section */
+  background-color: #f4f4f4; /* Light background color */
+}
+
+.brand-image-container {
+  flex: 1; /* Allows the image container to take equal space */
+  max-width: 100%; /* Prevents overflow */
+}
+
+.brand-image {
+  width: 100%; /* Responsive image */
+  height: 100%; /* Maintains aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.brand-info {
+  flex: 1; /* Allows the info container to take equal space */
+  padding-left: 20px; /* Space between image and text */
+}
+
+.brand-info h2 {
+  font-family: "Montserrat", sans-serif; /* Font for the heading */
+  font-size: 28px; /* Size of the heading */
+  color: #333; /* Dark text color */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+.brand-benefits {
+  list-style-type: none; /* Removes default bullet points */
+  padding: 0; /* Removes default padding */
+}
+
+.brand-benefits li {
+  font-family: "Open Sans", sans-serif; /* Font for the list items */
+  font-size: 18px; /* Size of the list items */
+  color: #555; /* Slightly lighter text color */
+  margin-bottom: 10px; /* Space between list items */
+}
+
+.highlighted-text {
+  font-weight: bold; /* Makes highlighted text bold */
+  color: #0073e6; /* Color for highlighted text */
+}
+
+
+.article-section {
+  padding: 40px 20px;
+  background-color: black; /* Light background for the article section */
+  color: white; /* Default text color */
+}
+
+.article-title {
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.article-container {
+  background-color: #1C1C1C;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between articles */
+  max-width: 800px; /* Limit the width of the article container */
+  margin: 0 auto; /* Center the container */
+}
+
+.article-item {
+  background-color: #1C1C1C; /* White background for each article */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.article-item h3 {
+  font-size: 24px; /* Title size */
+  margin-bottom: 10px;
+  color: #0073e6;
+}
+
+.article-item p {
+  line-height: 1.6; /* Improve readability */
+  margin: 10px 0; /* Spacing between paragraphs */
+}
+
+.article-item ul {
+  list-style-type: disc; /* Bullet points for the list */
+  margin-left: 20px; /* Indent the list */
+}
+
+.read-more {
+  display: inline-block; /* Make the link block-level */
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #0073e6; /* Button background color */
+  color: #fff; /* Button text color */
+  border-radius: 5px; /* Rounded button corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.read-more:hover {
+  background-color: #005bb5; /* Darker shade on hover */
+}
+
+
+.newsletter-section {
+  padding: 40px 20px;
+  background-color: #0073e6; /* Blue background for the newsletter section */
+  color: #fff; /* White text color */
+  text-align: center; /* Center text alignment */
+}
+
+.newsletter-title {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.newsletter-description {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.subscribe-button {
+  padding: 10px 20px;
+  background-color: #fff; /* White button */
+  color: #0073e6; /* Blue text for the button */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.subscribe-button:hover {
+  background-color: #e1e1e1; /* Light gray on hover */
+}
+
+.subscribe-form-container {
+  margin-top: 20px; /* Spacing above the form */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center form items */
+  background-color: #fff; /* White background for the form */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column; /* Stack form elements */
+  width: 100%;
+  max-width: 400px; /* Limit form width */
+}
+
+.subscribe-form label {
+  margin: 10px 0 5px; /* Spacing for labels */
+}
+
+.subscribe-form input {
+  padding: 10px;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 15px; /* Spacing below inputs */
+}
+
+.subscribe-form button {
+  padding: 10px;
+  background-color: #0073e6; /* Blue button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.subscribe-form button:hover {
+  background-color: #005bb5; /* Darker shade on hover */
+}
+
+
+.why-choose-us {
+    background-color: black; /* Set background color to black */
+color: white;
+    padding: 20px; /* Add padding around the section */
+}
+
+.benefits-list {
+    margin-bottom: 20px; /* Space below the benefits list */
+}
+
+.benefit-item {
+    border-bottom: 1px solid #333; /* Bottom border for each item */
+    padding: 10px 0; /* Padding for spacing */
+}
+
+.benefit-title {
+   color: #0073e6;
+    font-size: 1.2em; /* Larger font size for titles */
+    font-weight: bold; /* Bold font for titles */
+}
+
+.button-container {
+    margin-top: 20px; /* Space above the buttons */
+}
+
+.about-us-button,
+.contact-us-button {
+    display: inline-block; /* Make it a block element */
+    margin-right: 10px; /* Space between buttons */
+    padding: 10px 20px; /* Padding inside the button */
+    background-color: #0073e6; /* Button background color */
+    color: white; /* Text color */
+    font-family: "Montserrat Alternates", sans-serif; /* Font */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 50px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.about-us-button:hover,
+.contact-us-button:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+}
+.testimonials-section {
+    background-color: #f0f0f0; /* Light grey background */
+    color: black;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.testimonial p {
+    font-style: italic;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.review-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Blue background */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded button */
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.review-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.footer-section {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.social-media-icons {
+    margin-top: 15px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    font-size: 30px; /* Size of the icons */
+    color: white; /* Icon color */
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2); /* Zoom effect on hover */
+    color: #f39c12; /* Color change on hover */
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+      <div class="header-content">                                                              <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
+        <nav>
+<a href="index.html" class="nav-button">home</a>
+          <a href="about-us.html" class="nav-button">About us</a>
+          <a href="contact.html" class="nav-button">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="dashboard-section">
+        <h2>Welcome to Your Dashboard</h2>
+        <div class="dashboard-features">
+            <div class="feature-box">
+                <h3>See Expenses</h3>
+                <canvas id="expense-chart"></canvas>
+            </div>
+            <div class="feature-box">
+                <h3>Edit Expenses</h3>
+                <a href="edit-expenses.html" class="btn">Edit Your Expenses</a>
+            </div>
+            <div class="feature-box">
+                <h3>Add Expenses</h3>
+                <a href="add-expenses.html" class="btn">Add New Expenses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include a Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('expense-chart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April'],
+                datasets: [{
+                    label: 'Expenses',
+                    data: [1200, 1900, 3000, 5000],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+        });
+
+fetch('/expenses', {
+    method: 'GET',
+    headers: {
+        'auth-token': localStorage.getItem('token') // JWT token from localStorage
+    }
+}).then(res => res.json()).then(expenses => {
+    // Display expenses on dashboard
+    console.log(expenses);
+});
+
+
+    </script>
+
+
+
+</body>
+</html>

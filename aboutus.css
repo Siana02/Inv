@@ -1,0 +1,111 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #0073e6; /* Blue background for the header */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    animation: rotateLogo 6s infinite linear;
+}
+
+/* Keyframes for rotating the logo */
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation */
+.nav-button {
+    margin-left: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 40px;
+    background-color: transparent;
+}
+
+.nav-button:hover {
+    background-color: #005bb5;
+}
+
+/* About Us Section */
+.about-us-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.about-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.about-text h2 {
+    margin-bottom: 10px;
+    color: #0073e6;
+}
+
+.about-text p, .about-text ul {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.whats-next {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-us-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .about-text, .whats-next, .about-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

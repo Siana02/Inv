@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<header>
+      <div class="header-content">                                                              <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
+        <nav>
+<a href="index.html" class="nav-button">home</a>
+          <a href="about-us.html" class="nav-button">About us</a>
+          <a href="contact.html" class="nav-button">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+    <section class="auth-section">
+        <div class="auth-container">
+            <h2>Login</h2>
+            <form action="/login" method="post" class="auth-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
+        </div>
+
+    </section>
+<script>
+fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+}).then(res => res.json()).then(data => {
+    if (data.token) {
+        localStorage.setItem('token', data.token); // Save JWT token
+        window.location.href = 'dashboard.html';   // Redirect to dashboard
+    } else {
+        alert('Login failed');
+    }
+});
+
+</script>
+</body>
+</html>
