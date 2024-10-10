@@ -1,4 +1,3 @@
-/* General Styles */
 body {
   margin: 0;
   padding: 0;
@@ -10,8 +9,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
-/* Popup Notification */
 .popup-notification {
   width: 100%;
   background-color: White;
@@ -22,12 +19,11 @@ a {
   z-Index: 1000;
 }
 
-/* Background Container */
 .background-container {
   position: relative;
   background: url('/assets/images/Heroimage.jpg') no-repeat center center;
   background-size: cover;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,24 +31,21 @@ a {
   z-Index: 1;
 }
 
-
-/* Semi-Transparent Overlay */
 .overlay {
   position: absolute;
-  height:70vh;
+  height:100vh;
   width:100%; 
    top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 50% transparency */
-  z-Index: 2; /* Ensures it is above the background image but below the pop-up */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-Index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
  }
 
-/* Header */
 header {
   height: 80px;
   display: flex;
@@ -72,7 +65,6 @@ header {
   animation: rotateLogo 6s infinite linear;
 }
 
-/* Keyframes for rotating the logo */
 @keyframes rotateLogo {
   0% {
     transform: rotate(0deg);
@@ -82,16 +74,14 @@ header {
   }
 }
 
-
-/* Navigation Menu */
 #menu {
-  display: none; /* Hidden by default */
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
   flex-direction: column;
   justify-content: center;
@@ -123,7 +113,6 @@ header {
   cursor: pointer;
 }
 
-/* Menu Button */
 .menu-btn {
   font-size: 24px;
   background: none;
@@ -131,8 +120,6 @@ header {
   color: #fff;
   cursor: pointer;
 }
-
-/* Navigation */
 .nav-button {
   margin-left: 20px;
   color: #fff;
@@ -146,7 +133,6 @@ header {
   background-color: #005bb5;
 }
 
-/* Media Query for 480px and below */
 @media (max-width: 480px) {
   .right-nav {
     display: none; /* Hide right-aligned buttons on small screens */
@@ -162,9 +148,9 @@ header {
 /* Hero Section */
 .hero {
   display: flex;
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  height: 70vh; /* Ensures the hero section takes the full height of the screen */
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
   text-align: center;
   color: white;
 
@@ -209,7 +195,6 @@ header {
   background-color: #005bb5;
 }
 
-/* Adjustments for mobile */
 @media (max-width: 480px) {
   .hero h2 {
     font-size: 36px;
@@ -230,7 +215,6 @@ header {
 }
 
 @media  (max-width: 1024px) {
-  /* Adjustments for Laptops */
   .hero h2 {
     font-size: 42px;
   }
@@ -251,13 +235,13 @@ header {
 
 .features-section {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap onto the next line */
-  justify-content: flex-end; /* Spreads items evenly with space between */
+  flex-wrap: wrap;
+  justify-content: flex-end;
   padding: 20px;
-  background-color: #000; /* Black background for the grid section */
+  background-color: #000;
   max-width: 800px;
-  height: 40vh; /* Fixed height */
-  overflow: hidden; /* Hide overflow */
+  height: 40vh;
+  overflow: hidden;
   z-index: 3;
 }
 
@@ -330,7 +314,7 @@ header {
 
 .brand-image {
   width: 100%; /* Responsive image */
-  height: auto; /* Maintains aspect ratio */
+  height: 100%; /* Maintains aspect ratio */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
@@ -366,7 +350,6 @@ header {
   color: #0073e6; /* Color for highlighted text */
 }
 
-/* Media query for mobile phones (480px and below) */
 @media (max-width: 480px) {
   .brand-section {
     flex-direction: column; /* Stack image and info vertically ONLY for 480px and below */

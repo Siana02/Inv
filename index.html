@@ -4,7 +4,6 @@
   <title>Inv.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Add this in the <head> section of your HTML -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Modak&family=Moderustic:wght@300..800&family=Mohave:ital,wght@0,300..700;1,300..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Mouse+Memoirs&family=New+Amsterdam&family=Oswald:wght@200..700&family=Poiret+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -15,26 +14,22 @@
 </head>
 <body>
 
-  <!-- Popup Notification -->
   <div class="popup-notification">
     <p id="popup-text">Sign up today & start investing</p>
   </div>
-  <!-- Container for both header and hero sections with shared background -->
   <div class="background-container">
 <div class="overlay">
 <header>
   <div class="header-content">
-    <!-- Navigation Button to Open Menu -->
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-    <!-- Navigation Menu (Hidden by default) -->
     <nav id="menu">
       <span class="close-btn" onclick="toggleMenu()">X</span>
       <ul>
         <li><a href="index.html">Home</a></li>
-<li><a href="sign-up.html">Sign Up</a></li>
-<li><a href="login.html">Login</a></li>
-<li><a href="dash.html">Dashboard</a></li>
+       <li><a href="sign-up.html">Sign Up</a></li>
+       <li><a href="login.html">Login</a></li>
+       <li><a href="dash.html">Dashboard</a></li>
         <li><a href="viewexpense.html">View Expenses</a></li>
         <li><a href="add-expense.html">Add Expenses</a></li>
         <li><a href="edit-expense.html">Edit Expenses</a></li>
@@ -51,10 +46,7 @@
     menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
   }
 </script>
-    <!-- Rotating Logo -->
     <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
-
-    <!-- Other Nav Buttons -->
     <nav class="right-nav">
       <a href="index.html" class="nav-button">Home</a>
       <a href="sign-up.html" class="nav-button">Sign-Up</a>
@@ -62,7 +54,6 @@
     </nav>
   </div>
 </header>
-    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
         <h2>MASTER <span class="highlight">THE ART</span> OF <span class="highlight">INVESTING</span></h2>
@@ -148,7 +139,7 @@
 <section class="newsletter-section">
   <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
   <p class="newsletter-description">
-    Get articles tailored specifically for you, directly to your inbox. Stay informed with the latest insights and updates.
+    Get articles tailored specifically for you, directly to your inbox. Stay informed with the latest insights and networking events happening near you! 
   </p>
   <button class="subscribe-button" id="subscribeBtn">Subscribe Now</button>
 
@@ -182,7 +173,6 @@
     </div>
     <p>Join countless satisfied customers who have transformed their financial health with our services. Start managing your expenses with confidence today!</p>
 
-    <!-- About Us and Contact Us Buttons -->
     <div class="button-container">
         <a href="about.html" class="about-us-button">About Us</a>
         <a href="contact.html" class="contact-us-button">Contact Us</a>
@@ -204,7 +194,6 @@
             <span>- Jordan W.</span>
         </div>
     </div>
-   <!-- Leave a Review Button -->
     <a href="contact.html" class="review-button">Leave a Review</a>
 </section>
 <footer class="footer-section">
