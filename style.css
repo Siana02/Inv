@@ -277,14 +277,20 @@ header {
   margin: 0;
 }
 
-/* Responsive Styles for Smaller Screens */
-@media (max-width: 480px) {
+
+/* Responsive styling for mobile screens */
+@media (max-width: 600px) {
+  .features-section {
+    height: auto;
+  }
+
   .icon-item {
-    width: 100%; /* Full width for small screens */
-    height: auto; /* Height adjusts naturally */
-    margin: 10px 0; /* Margin between items */
+    width: 100%;  /* Each item takes full width */
+    height: auto; /* Auto height for proper stacking */
+    margin: 10px 0; /* Add margin between stacked items */
   }
 }
+
 @media  (max-width: 1024px) {
   .features-section {
     flex-wrap: nowrap; /* Prevent items from wrapping */
@@ -299,7 +305,6 @@ header {
 }
 
 
-/* Default styles for tablets, laptops, and larger screens (480px and above) */
 .brand-section {
   display: flex; /* Aligns image and info side by side */
   justify-content: space-between; /* Spaces out the items */
