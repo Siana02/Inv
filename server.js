@@ -33,6 +33,24 @@ async function connectToDatabase() {
 async function startServer() {
     const db = await connectToDatabase();
 
+const jwt = require('jsonwebtoken');
+
+// Middleware to verify JWT token
+function verifyToken(req, res, next) {
+    const token = req.header('auth-token'); // Get the token from the request header
+    if (!token) return res.status(401).send('Access denied.'); // If no token, deny access
+
+    try {
+        const verified = jwt.verify(token, process.env.SECRET_KEY || 'SECRET_KEY'); // Verify the token
+        req.user = verified; // Attach the user data to the request object
+        next(); // Proceed to the next middleware or route handler
+    } catch (error) {
+        res.status(400).send('Invalid token.'); // If token verification fails
+    }
+}
+
+
+
     // Serve static HTML pages
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, 'index.html'));
@@ -66,6 +84,50 @@ async function startServer() {
         res.sendFile(path.join(__dirname, 'sign-up.html'));
     });
 
+
+
+
+// POST: Registration Route
+app.post('/register', async (req, res) => {
+    const { name, email, password } = req.body; // Include 'name' if necessary
+
+    // Check if all required fields are provided
+    if (!name || !email || !password) {
+        return res.status(400).send('Name, email, and password are required.');
+    }
+
+    try {
+        // Check if the email already exists
+        const [existingUser] = await db.query('SELECT * FROM Users WHERE email = ?', [email]);
+        if (existingUser.length > 0) {
+            return res.status(400).send('Email already exists.');
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10); // Use 10 salt rounds
+
+        // Insert new user into the database
+        await db.query('INSERT INTO Users (name, email, password) VALUES (?, ?, ?)', [name, email, hashedPassword]);
+
+        res.status(201).send('User registered successfully.');
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        res.status(500).send('Server error.');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
     // POST: Login Route
     app.post('/login', async (req, res) => {
         const { email, password } = req.body;
@@ -85,16 +147,24 @@ async function startServer() {
             const user = rows[0]; // Assuming the first result is the user
 
             // Replace this with your password verification logic
-            const validPassword = await bcrypt.compare(password, user.password);
-            if (!validPassword) return res.status(400).send('Invalid password.');
 
-            const token = jwt.sign({ id: user.id }, 'SECRET_KEY'); // Use environment variable for secret
-            res.header('auth-token', token).send({ token });
-        } catch (error) {
-            console.error(error); // Log the error for debugging
-            res.status(500).send('Server error.');
-        }
-    });
+        // Verify the password
+        const validPassword = await bcrypt.compare(password, user.password); // Compare input password with hashed password
+        if (!validPassword) return res.status(400).send('Invalid password.');
+
+        // Generate a token
+        const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY || 'SECRET_KEY'); // Use environment variable for the secret key
+
+        // Send the token in the response
+        res.header('auth-token', token).send({ token });
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        res.status(500).send('Server error.');
+    }
+});
+
+
+
 
     // Get expenses for a specific user
     app.get('/expenses', verifyToken, async (req, res) => {

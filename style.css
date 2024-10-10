@@ -144,6 +144,24 @@ header {
   }
 }
 
+@media  (max-width: 1024px) {
+  /* Adjustments for Laptops */
+  .hero h2 {
+    font-size: 42px;
+  }
+
+  .hero .highlight {
+    font-size: 46px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .nav-button {
+    padding: 8px 14px;
+    font-size: 16px;
+  }
 
 
 .features-section {
@@ -197,6 +215,22 @@ header {
     margin: 10px 0; /* Margin between items */
   }
 }
+@media  (max-width: 1024px) {
+  .features-section {
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    justify-content: space-around; /* Adjust layout for even spacing */
+    height: auto; /* Allow height to adjust */
+  }
+
+  .icon-item {
+    width: calc(33% - 10px); /* Make items fit three per row */
+    height: auto;
+  }
+}
+
+
+
+
 .brand-section {
   display: flex; /* Aligns image and info side by side */
   justify-content: space-between; /* Spaces out the items */
@@ -244,6 +278,22 @@ header {
   font-weight: bold; /* Makes highlighted text bold */
   color: #0073e6; /* Color for highlighted text */
 }
+@media (max-width: 1024px) {
+  
+
+  .brand-section {
+    flex-direction: row; /* Ensure image and info are side by side */
+  }
+
+  .brand-info h2 {
+    font-size: 24px; /* Adjust text size */
+  }
+}
+
+
+
+
+
 
 
 .article-section {
