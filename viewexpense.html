@@ -1,0 +1,182 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inv.| View expenses</title>
+  <link rel="stylesheet" href="viewexpense.css">
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Modak&family=Moderustic:wght@300..800&family=Mohave:ital,wght@0,300..700;1,300..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200&family=Mouse+Memoirs&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="viewexpense.js"></script>
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-content">   
+<h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>   
+                                                           <nav>                       
+          <a href="index.html" class="nav-button">Home</a>
+          <a href="dash.html" class="nav-button">Dashboard</a>
+        </nav>
+      </div>
+    </header>
+
+<section>
+        <h2>View Expenses</h2>
+    </section>
+
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Expense Overview</h2>
+        <canvas id="expenseChart" width="400" height="200"></canvas>
+    </section>
+
+<section>
+        <a href="add-expense.html" class="button-link">Add Expense</a>
+    </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Sample data for the chart
+    const data = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+            label: 'Expenses',
+            data: [1200, 1900, 3000, 500, 2100, 1500],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)', // Red
+                'rgba(54, 162, 235, 0.2)', // Blue
+                'rgba(255, 206, 86, 0.2)', // Yellow
+                'rgba(75, 192, 192, 0.2)', // Teal
+                'rgba(153, 102, 255, 0.2)', // Purple
+                'rgba(255, 159, 64, 0.2)'  // Orange
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)', // Red
+                'rgba(54, 162, 235, 1)', // Blue
+                'rgba(255, 206, 86, 1)', // Yellow
+                'rgba(75, 192, 192, 1)', // Teal
+                'rgba(153, 102, 255, 1)', // Purple
+                'rgba(255, 159, 64, 1)'  // Orange
+            ],
+            borderWidth: 1,
+            hoverBackgroundColor: [
+                'rgba(255, 99, 132, 0.4)', // Red
+                'rgba(54, 162, 235, 0.4)', // Blue
+                'rgba(255, 206, 86, 0.4)', // Yellow
+                'rgba(75, 192, 192, 0.4)', // Teal
+                'rgba(153, 102, 255, 0.4)', // Purple
+                'rgba(255, 159, 64, 0.4)'  // Orange
+            ],
+            hoverBorderColor: [
+                'rgba(255, 99, 132, 1)', // Red
+                'rgba(54, 162, 235, 1)', // Blue
+                'rgba(255, 206, 86, 1)', // Yellow
+                'rgba(75, 192, 192, 1)', // Teal
+                'rgba(153, 102, 255, 1)', // Purple
+                'rgba(255, 159, 64, 1)'  // Orange
+            ]
+        }]
+    };
+
+    // Create the chart
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar', // Change to 'line' or other types if needed
+        data: data,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += `$${context.parsed.y}`;
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+<footer class="footer-section">
+    <div class="footer-content">
+        <p>   Billionaire Mindset 2024 | All rights reserved.</p>
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com/_marsiana._?utm_source=ig_web_button_share_sheet&ig>
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost"></i>
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="viewexpense.js"></script>
+</body>
+</html>

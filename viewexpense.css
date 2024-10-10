@@ -1,0 +1,148 @@
+/* General Styles */
+body {
+    font-family: 'Mohave', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background color */
+    color: #333; /* Dark text color */
+}
+
+/* Header Styles */
+header {
+    background-color: #007bff; /* Header background color */
+    padding: 10px ; /* Padding for header */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */                                                           }
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav */
+    width: 100%; /* Full width */
+}
+
+.logo {
+  height: 60px;
+  animation: rotateLogo 6s infinite linear;
+  margin-right: auto;
+}
+/* Keyframes for rotating the logo */
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);                                                                                     }
+}
+/* Navigation Styles */
+nav {
+    margin-left: auto; /* Push nav to the far right */
+}
+
+.nav-button {
+    color: white; /* White text for nav buttons */
+    text-decoration: none; /* Remove underline from links */
+    margin-left: 20px; /* Space between nav buttons */
+    padding: 10px; /* Padding for buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Rounded corners for buttons */
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+
+
+/* Table Styles */
+section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: linear-gradient(135deg, #ff7e5f, #feb47b); /* White background for table */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dee2e6; /* Light gray border */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff; /* Table header background color */
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping */
+}
+
+tbody tr:hover {
+    background-color: #e9ecef; /* Highlight row on hover */
+}
+
+/* Chart Section */
+#expenseChart {
+    margin-top: 20px;
+    border: 1px solid #dee2e6; /* Border for the chart */
+}
+
+/* Button Styles */
+.button-link {
+    display: inline-block;
+    background-color: #28a745; /* Green button color */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Footer Styles */
+.footer-section {
+    background-color: #343a40; /* Dark footer background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-media-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: white;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* Stack header content on smaller screens */
+    }
+
+    .nav-button {
+        margin: 5px 0; /* Space buttons vertically */
+    }
+}

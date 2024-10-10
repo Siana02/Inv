@@ -118,8 +118,24 @@ app.post('/register', async (req, res) => {
 
 
 
+// Subscribe route
+app.post('/subscribe', async (req, res) => {
+    const { name, email } = req.body;
 
+    // Validate input
+    if (!name || !email) {
+        return res.status(400).send('Name and email are required.');
+    }
 
+    try {
+        // Insert the subscriber into the database
+        await db.query('INSERT INTO Subscribers (name, email) VALUES (?, ?)', [name, email]);
+        res.status(201).send('Successfully subscribed to the newsletter.');
+    } catch (error) {
+        console.error('Error subscribing to newsletter:', error);
+        res.status(500).send('Server error. Please try again later.');
+    }
+});
 
 
 

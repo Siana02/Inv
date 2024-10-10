@@ -1,66 +1,138 @@
-/* Global styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+}
+
+/* Header Styles */
+header {
+    background-color: #007bff; /* Header background color */
+    padding: 10px 20px; /* Padding for header */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.header-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: space-between; /* Space between logo and nav */
+    width: 100%; /* Full width */
 }
 
-.container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    max-width: 100%;
+.logo {
+  height: 60px;
+  animation: rotateLogo 6s infinite linear;
+  margin-right: auto;
+}                                                                                                                
+/* Keyframes for rotating the logo */
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Navigation Styles */
+nav {
+    margin-left: auto; /* Push nav to the far right */
 }
 
+.nav-button {
+    color: white; /* White text for nav buttons */
+    text-decoration: none; /* Remove underline from links */
+    margin-left: 20px; /* Space between nav buttons */
+    padding: 10px; /* Padding for buttons */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Rounded corners for buttons */
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+/* Section Styles */
 h2 {
-    text-align: center;
-    color: #333;
+    margin: 20px 0; /* Margin for section title */
 }
 
-.form-group {
-    margin-bottom: 20px;
+section {
+    max-width: 600px; /* Max width for the form */
+    margin: 0 auto; /* Center the section */
+    background: white; /* White background for form */
+    padding: 20px; /* Padding for form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
 }
 
 label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
+    margin-bottom: 5px; /* Space below labels */
 }
 
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+input, textarea {
+    margin-bottom: 15px; /* Space below inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners for inputs */
 }
 
-input[type="submit"] {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
+button[type="submit"] {
+    background-color: #28a745; /* Submit button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
-input[type="submit"]:hover {
-    background-color: #218838;
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
+/* Footer Styles */
+.footer-section {
+    background-color: #343a40; /* Dark footer background */
+    color: white; /* White text in footer */
+    text-align: center; /* Centered text */
+    padding: 20px; /* Padding */
+}
+
+.social-media-icons {
+    margin-top: 10px; /* Space above icons */
+}
+
+.social-icon {
+    color: white; /* White color for social icons */
+    margin: 0 10px; /* Space between icons */
+    transition: color 0.3s; /* Smooth transition */
+}
+
+.social-icon:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .header-content {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .nav-button {
+        margin: 5px 0; /* Space buttons vertically */
     }
 }

@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +15,32 @@
             <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
             <nav>
                 <a href="index.html" class="nav-button">Home</a>
-                <a href="dashboard.html" class="nav-button">Dashboard</a>
+                <a href="dash.html" class="nav-button">Dashboard</a>
             </nav>
         </div>
     </header>
 
-    <section class="form-section">
-        <h2>Edit Expense</h2>
-        <form id="edit-expense-form">
-            <label for="title">Expense Title</label>
-            <input type="text" id="title" name="title" required>
 
-            <label for="amount">Amount</label>
+<h2>Edit Expense</h2>
+    </header>
+    <section>
+        <form action="/edit_expense" method="POST">
+            <label for="id">Expense ID:</label>
+            <input type="text" id="id" name="id" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="amount">Amount:</label>
             <input type="number" id="amount" name="amount" required>
 
-            <button type="submit">Save Changes</button>
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <button type="submit">Edit Expense</button>
         </form>
     </section>
 
@@ -53,5 +67,32 @@
             window.location.href = 'dashboard.html'; // Redirect back to dashboard
         });
     </script>
+
+
+<footer class="footer-section">
+    <div class="footer-content">
+        <p>   Billionaire Mindset 2024 | All rights reserved.</p>
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com/_marsiana._?utm_source=ig_web_button_share_sheet&ig>
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.snapchat.com" target="_blank" class="social-icon">
+                <i class="fab fa-snapchat-ghost"></i>
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+
 </body>
 </html>

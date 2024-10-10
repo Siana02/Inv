@@ -21,23 +21,51 @@
   </div>
   <!-- Container for both header and hero sections with shared background -->
   <div class="background-container">
-    <!-- Header Section -->
-    <header>
-      <div class="header-content">
-        <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
-        <nav>
-<a href="index.html" class="nav-button">home</a>
-          <a href="sign-up.html" class="nav-button">Sign-Up</a>
-          <a href="about-us.html" class="nav-button">About us</a>
-          <a href="contact.html" class="nav-button">Contact Us</a>
-        </nav>
-      </div>
-    </header>
+<div class="overlay">
+<header>
+  <div class="header-content">
+    <!-- Navigation Button to Open Menu -->
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
+    <!-- Navigation Menu (Hidden by default) -->
+    <nav id="menu">
+      <span class="close-btn" onclick="toggleMenu()">X</span>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+<li><a href="sign-up.html">Sign Up</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="dash.html">Dashboard</a></li>
+        <li><a href="viewexpense.html">View Expenses</a></li>
+        <li><a href="add-expense.html">Add Expenses</a></li>
+        <li><a href="edit-expense.html">Edit Expenses</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about-us.html">About</a></li>
+      </ul>
+    </nav>
+
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+    <!-- Rotating Logo -->
+    <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
+
+    <!-- Other Nav Buttons -->
+    <nav class="right-nav">
+      <a href="index.html" class="nav-button">Home</a>
+      <a href="sign-up.html" class="nav-button">Sign-Up</a>
+      <a href="about-us.html" class="nav-button">About us</a>
+    </nav>
+  </div>
+</header>
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h2>LEARN<span class="highlight">THE ART</span> OF <span class="highlight">INVESTING</span></h2>
+        <h2>MASTER <span class="highlight">THE ART</span> OF <span class="highlight">INVESTING</span></h2>
         <p>Get Personalized Investment Options Tailored To Suit Your Finances.</p>
         <div class="hero-buttons">
           <a href="sign-up.html" class="btn">Sign Up</a>
@@ -45,8 +73,9 @@
         </div>
       </div>
     </section>
-</div>
+ </div>
 
+</div>
 <section class="features-section">
   <div class="icon-item">
     <span class="material-symbols-outlined">table_chart_view</span>
@@ -65,7 +94,7 @@
   
   <div class="icon-item">
     <span class="material-symbols-outlined">query_stats</span>
-    <p>Our Investment insights are always current keeping up with the dynamic finance investment trends.</p>
+    <p>Our Investment insights are always up to date with the dynamic investment trends.</p>
   </div>
 </section>
 
@@ -85,6 +114,7 @@
     </ul>
   </aside>
 </section>
+
 <section class="article-section">
   <h2 class="article-title">Investment Insights for 2024</h2>
   <div class="article-container">

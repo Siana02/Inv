@@ -4,54 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dash.css">
 </head>
 <body>
 <header>
-      <div class="header-content">                                                              <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
+    <div class="header-content">
+        <h1><img src="assets/images/Logo.png" alt="Logo" class="logo"></h1>
         <nav>
-<a href="index.html" class="nav-button">home</a>
-          <a href="about-us.html" class="nav-button">About us</a>
-          <a href="contact.html" class="nav-button">Contact Us</a>
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="about-us.html" class="nav-button">About Us</a>
+            <a href="contact.html" class="nav-button">Contact Us</a>
         </nav>
-      </div>
-    </header>
+    </div>
+</header>
 
-    <section class="dashboard-section">
-        <h2>Welcome to Your Dashboard</h2>
-        <div class="dashboard-features">
-            <div class="feature-box">
-                <h3>See Expenses</h3>
-                <canvas id="expense-chart"></canvas>
-            </div>
-            <div class="feature-box">
-                <h3>Edit Expenses</h3>
-                <a href="edit-expenses.html" class="btn">Edit Your Expenses</a>
-            </div>
-            <div class="feature-box">
-                <h3>Add Expenses</h3>
-                <a href="add-expenses.html" class="btn">Add New Expenses</a>
-            </div>
+<section class="dashboard-section">
+    <h2>Welcome to Your Dashboard</h2>
+    <p>Your personal space to manage, track, and analyze your expenses effortlessly.</p>
+
+    <div class="dashboard-features">
+        <!-- Expense Chart Section -->
+        <div class="feature-box">
+            <h3>See Expenses</h3>
+            <canvas id="expense-chart"></canvas>
+            <p>Visualize your monthly spending habits and analyze trends over time.</p>
+<a href="viewexpense.html" class="btn">View Expenses</a>
         </div>
-    </section>
 
-    <!-- Include a Chart.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var ctx = document.getElementById('expense-chart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April'],
-                datasets: [{
-                    label: 'Expenses',
-                    data: [1200, 1900, 3000, 5000],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-        });
+        <!-- Edit Expenses Section -->
+        <div class="feature-box">
+            <h3>Edit Expenses</h3>
+            <p>Update or delete your recorded expenses with ease.</p>
+            <a href="edit-expense.html" class="btn">Edit Your Expenses</a>
+        </div>
+
+        <!-- Add Expenses Section -->
+        <div class="feature-box">
+            <h3>Add Expenses</h3>
+            <p>Keep track of every transaction by adding new expenses to your dashboard.</p>
+            <a href="add-expense.html" class="btn">Add New Expenses</a>
+        </div>
+    </div>
+<div> <h3>AI Features Coming Soon </h3> </div>
+    <!-- Additional Feature: Budget Tracker -->
+    <div class="feature-box">
+        <h3>Set Budget Goals</h3>
+        <p>Define your monthly budget and monitor your progress.</p>
+        <a href="budget.html" class="btn">Set a Budget</a>
+    </div>
+
+    <!-- Additional Feature: Savings Overview -->
+    <div class="feature-box">
+        <h3>Savings Overview</h3>
+        <p>Track how much you're saving and reach your financial goals faster.</p>
+        <a href="savings.html" class="btn">View Savings</a>
+    </div>
+</section>
+
+<!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('expense-chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April'],
+            datasets: [{
+                label: 'Expenses',
+                data: [1200, 1900, 3000, 5000],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+    });
 
 fetch('/expenses', {
     method: 'GET',
@@ -62,11 +88,6 @@ fetch('/expenses', {
     // Display expenses on dashboard
     console.log(expenses);
 });
-
-
-    </script>
-
-
-
+</script>
 </body>
 </html>

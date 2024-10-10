@@ -19,18 +19,38 @@ a {
   text-align: center;
   padding: 3px;
   font-size: 14px;
-  z-index: 1000;
+  z-Index: 1000;
 }
 
 /* Background Container */
 .background-container {
+  position: relative;
   background: url('/assets/images/Heroimage.jpg') no-repeat center center;
   background-size: cover;
   height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  z-Index: 1;
 }
+
+
+/* Semi-Transparent Overlay */
+.overlay {
+  position: absolute;
+  height:70vh;
+  width:100%; 
+   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% transparency */
+  z-Index: 2; /* Ensures it is above the background image but below the pop-up */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ }
 
 /* Header */
 header {
@@ -62,12 +82,62 @@ header {
   }
 }
 
+
+/* Navigation Menu */
+#menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+  z-index: 1000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu ul li {
+  margin: 20px 0;
+}
+
+#menu ul li a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Menu Button */
+.menu-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
 /* Navigation */
 .nav-button {
   margin-left: 20px;
   color: #fff;
   font-weight: bold;
-  background-color: #transparent;
+  background-color: transparent;
   padding: 10px 15px;
   border-radius: 40px;
 }
@@ -75,6 +145,18 @@ header {
 .nav-button:hover {
   background-color: #005bb5;
 }
+
+/* Media Query for 480px and below */
+@media (max-width: 480px) {
+  .right-nav {
+    display: none; /* Hide right-aligned buttons on small screens */
+  }
+
+  .menu-btn {
+    font-size: 30px; /* Make menu button larger on small screens */
+  }
+}
+
 
 
 /* Hero Section */
@@ -85,7 +167,10 @@ header {
   height: 70vh; /* Ensures the hero section takes the full height of the screen */
   text-align: center;
   color: white;
-}
+
+} 
+
+
 
 .hero h2 {
   font-family: "Mohave", sans-serif;
@@ -125,7 +210,7 @@ header {
 }
 
 /* Adjustments for mobile */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .hero h2 {
     font-size: 36px;
   }
@@ -173,6 +258,7 @@ header {
   max-width: 800px;
   height: 40vh; /* Fixed height */
   overflow: hidden; /* Hide overflow */
+  z-index: 3;
 }
 
 .icon-item {
@@ -229,8 +315,7 @@ header {
 }
 
 
-
-
+/* Default styles for tablets, laptops, and larger screens (480px and above) */
 .brand-section {
   display: flex; /* Aligns image and info side by side */
   justify-content: space-between; /* Spaces out the items */
@@ -245,7 +330,7 @@ header {
 
 .brand-image {
   width: 100%; /* Responsive image */
-  height: 100%; /* Maintains aspect ratio */
+  height: auto; /* Maintains aspect ratio */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
@@ -272,21 +357,34 @@ header {
   font-size: 18px; /* Size of the list items */
   color: #555; /* Slightly lighter text color */
   margin-bottom: 10px; /* Space between list items */
+  border-bottom: 2px solid black; /* Black bottom border */
+  padding-bottom: 10px; /* Space between text and border */
 }
 
 .highlighted-text {
   font-weight: bold; /* Makes highlighted text bold */
   color: #0073e6; /* Color for highlighted text */
 }
-@media (max-width: 1024px) {
-  
 
+/* Media query for mobile phones (480px and below) */
+@media (max-width: 480px) {
   .brand-section {
-    flex-direction: row; /* Ensure image and info are side by side */
+    flex-direction: column; /* Stack image and info vertically ONLY for 480px and below */
+    align-items: center; /* Center align items */
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .brand-info {
+    padding-left: 0; /* Remove left padding for better centering */
+    text-align: center; /* Center text */
   }
 
   .brand-info h2 {
-    font-size: 24px; /* Adjust text size */
+    font-size: 24px; /* Adjust text size for small mobile */
+  }
+
+  .brand-benefits li {
+    font-size: 16px; /* Adjust list item font size for mobile */
   }
 }
 

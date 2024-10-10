@@ -4,6 +4,7 @@ header {
   display: flex;
   align-items: center;
   padding: 0 20px;
+ background-color: black;
 }
 
 .header-content {
@@ -33,7 +34,7 @@ header {
   margin-left: 20px;
   color: #fff;
   font-weight: bold;
-  background-color: #transparent;
+  background-color: transparent;
   padding: 10px 15px;
   border-radius: 40px;
 }
@@ -42,44 +43,73 @@ header {
   background-color: #005bb5;
 }
 
+
+/* Dashboard Section */
 .dashboard-section {
-    padding: 50px;
-    background-color: #f9f9f9;
-    text-align: center;
+  padding: 50px;
+  background-color: black;
+  text-align: center;
 }
 
 .dashboard-section h2 {
-    margin-bottom: 20px;
-    color: #333;
+  margin-bottom: 20px;
+  color: #005bb5;
 }
 
+.dashboard-section p {
+  color: white;
+  margin-bottom: 40px;
+}
+
+
+h3 {color:#fff}
+
+
+
+/* Dashboard Features Layout */
 .dashboard-features {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .feature-box {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    margin-bottom: 20px;
-    text-align: center;
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom:2px solid #ccc;
 }
 
 .feature-box h3 {
-    margin-bottom: 15px;
-    color: #0073e6;
+  margin-bottom: 15px;
+  color: #005bb5;
+}
+
+.feature-box p {
+  color: white;
 }
 
 .feature-box .btn {
-    display: inline-block;
-    background-color: #0073e6;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 10px;
+  display: inline-block;
+  background-color: #0073e6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.feature-box .btn:hover {
+  background-color: #005bb5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .feature-box {
+    width: 100%;
+  }
 }

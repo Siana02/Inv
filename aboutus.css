@@ -17,7 +17,8 @@ header {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    background-color: #0073e6; /* Blue background for the header */
+    background-color: black; /* Blue background for the header */
+    bottom-border:1px solid #fff;
 }
 
 .header-content {
@@ -58,54 +59,102 @@ header {
 }
 
 /* About Us Section */
-.about-us-section {
-    display: flex;
-    justify-content: space-between;
+/* About Us Section */
+.about-us-section1, .about-us-section2 {
+    background-color: black;
     padding: 40px;
-    background-color: #ffffff;
+    border-bottom: 2px solid #005bb5; /* Blue bottom border */
 }
 
-.about-text {
-    flex: 1;
-    margin-right: 20px;
+.about-us-section1 h2, .whats-next h2 {
+    color: #005bb5; /* Blue text for headers */
+    margin-bottom: 15px;
 }
 
-.about-text h2 {
-    margin-bottom: 10px;
-    color: #0073e6;
-}
-
-.about-text p, .about-text ul {
-    margin-bottom: 20px;
+.about-us-section1 p, .whats-next p {
+    color: white; /* White text for paragraphs */
     line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.whats-next {
-    flex: 1;
+.about-us-section1 ul, .whats-next ul {
+    color: white; /* White text for lists */
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
 }
 
+.about-us-section1 li, .whats-next li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Custom tick icon for the list */
+.about-us-section1 li::before, .whats-next li::before {
+    content: '✔';
+    color: #0073e6; /* Blue tick */
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    top: 0;
+}
+
+/* About Us Image Section */
 .about-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .about-image img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-us-section {
-        flex-direction: column;
+/* Responsiveness for larger screens (1080px and above) */
+@media (min-width: 1080px) {
+    .about-us-section2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .about-image {
+        flex: 1;
+        margin-left: 40px;
+    }
+
+    .whats-next {
+        flex: 1;
+    }
+}
+
+/* Responsiveness for smaller screens (480px and below) */
+@media (max-width: 480px) {
+    .about-us-section1, .about-us-section2 {
         padding: 20px;
     }
 
-    .about-text, .whats-next, .about-image {
-        margin-right: 0;
-        margin-bottom: 20px;
+    .about-us-section2 {
+        flex-direction: column;
+    }
+
+    .about-image {
+        margin-top: 20px;
+    }
+
+    .whats-next h2, .about-us-section1 h2 {
+        font-size: 24px;
+    }
+
+    .about-us-section1 p, .whats-next p, .about-us-section1 li, .whats-next li {
+        font-size: 14px;
     }
 }
+
+
+
+
+
