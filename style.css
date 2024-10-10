@@ -278,18 +278,32 @@ header {
 }
 
 
-/* Responsive styling for mobile screens */
+
+/* Responsive styles for smaller screens */
 @media (max-width: 600px) {
   .features-section {
-    height: auto;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
   }
 
   .icon-item {
-    width: 100%;  /* Each item takes full width */
-    height: auto; /* Auto height for proper stacking */
-    margin: 10px 0; /* Add margin between stacked items */
+    width: 90%; /* Each item takes 90% width of the parent container */
+    margin: 10px 0; /* Space between stacked items */
+  }
+
+  .icon-item:nth-child(1),
+  .icon-item:nth-child(2) {
+    /* Ensuring the first two items stack on top */
+    width: 90%; /* Maintain width */
+  }
+
+  .icon-item:nth-child(3),
+  .icon-item:nth-child(4) {
+    /* Ensuring the last two items stack below */
+    width: 90%; /* Maintain width */
   }
 }
+
 
 @media  (max-width: 1024px) {
   .features-section {
