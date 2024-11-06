@@ -3,11 +3,9 @@
 ## Personalized Investment App With Savings & Expenditure monitoring 
 
 
-This is a personalized investment and expense-tracking web application designed to help users manage their finances, set goals, and receive insights for potential investment opportunities. The app offers budgeting, financial tracking, and networking features to enhance financial literacy and growth.
+This is a personalized investment and savings & expenditure -tracking web application designed to help users manage their finances, set goals, and receive insights for potential investment opportunities. The app offers budgeting, financial tracking, and networking features to enhance financial literacy and growth.
 
 ## Features
-
-●Expense tracking and reporting
 
 ●Customized financial insights and tips
 
@@ -16,6 +14,8 @@ This is a personalized investment and expense-tracking web application designed 
 ●Partnership recommendations
 
 ●Up-to-date investment trends
+
+●Savings & Expenditure monitoring and reporting
 
  
  ## PROJECT FILES OVERVIEW 
