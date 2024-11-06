@@ -64,12 +64,13 @@ Assets: Contains images, icons, or other static resources used in the applicatio
 # Prerequisites
 
 To run this project locally, ensure you have the following software installed:
- ●Node.js (version 14 or higher) 
+
+● Node.js (version 14 or higher) 
 npm (Node Package Manager) or yarn (if preferred)
 
-●MySQL - The app uses a MySQL database to store user data and expense information.
+● MySQL - The app uses a MySQL database to store user data and expense information.
 
-●Git - (Optional) for version control
+● Git - (Optional) for version control
 
 > Note: Make sure to set up a MySQL server and have the necessary database credentials to connect with the application.
 
@@ -77,7 +78,8 @@ npm (Node Package Manager) or yarn (if preferred)
 
 ## Installation
 
-1. Clone the repository https://github.com/Siana02/Inv.git 
+1. Clone the repository
+git clone https://github.com/Siana02/Inv.git 
 cd Inv
 
 2. Install dependencies
