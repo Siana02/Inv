@@ -17,9 +17,9 @@ This is a personalized investment and expense-tracking web application designed 
 
 ●Up-to-date investment trends
 
-- 
+ 
  ## PROJECT FILES OVERVIEW 
-- 
+
 # HTML Files:
 
 about-us.html, add-expense.html, contact.html, dash.html, edit-expense.html, index.html, login.html, sign-up.html, viewexpense.html: These are the main web pages, each serving different sections of the application (e.g., login, dashboard, contact page, etc.).
@@ -59,7 +59,7 @@ node_modules: Directory where Node.js dependencies are installed.
 
 Assets: Contains images, icons, or other static resources used in the application.
 
-## Getting Started
+# Getting Started
 
 # Prerequisites
 
