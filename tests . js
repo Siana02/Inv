@@ -1,0 +1,92 @@
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const app = require('../path-to-your-server-file'); // Adjust the path to your server file
+const { expect } = chai;
+
+chai.use(chaiHttp);
+
+describe('Expenses API', () => {
+  // Set up mock data and authentication token if needed
+  let authToken;
+  const mockExpense = {
+    title: 'Test Expense',
+    amount: 100,
+  };
+  let expenseId;
+
+  before(async () => {
+    // Login or register to get auth token
+    const res = await chai
+      .request(app)
+      .post('/login') // Adjust the login path if necessary
+      .send({ username: 'testuser', password: 'password' });
+    authToken = res.body.token; // Assuming token is returned in response body
+
+    // Create an expense to update and delete
+    const createRes = await chai
+      .request(app)
+      .post('/expenses')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(mockExpense);
+    expenseId = createRes.body.id; // Assuming created expense ID is returned
+  });
+
+  after(async () => {
+    // Clean up created data
+    await chai
+      .request(app)
+      .delete(`/expenses/${expenseId}`)
+      .set('Authorization', `Bearer ${authToken}`);
+  });
+
+  describe('PUT /expenses/:id', () => {
+    it('should update an expense', async () => {
+      const updatedExpense = {
+        title: 'Updated Expense',
+        amount: 150,
+      };
+
+      const res = await chai
+        .request(app)
+        .put(`/expenses/${expenseId}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send(updatedExpense);
+
+      expect(res).to.have.status(200);
+      expect(res.text).to.equal('Expense updated!');
+    });
+
+    it('should return 404 for non-existent or unauthorized expense', async () => {
+      const res = await chai
+        .request(app)
+        .put(`/expenses/nonexistent-id`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .send(mockExpense);
+
+      expect(res).to.have.status(404);
+      expect(res.text).to.equal('Expense not found or you do not have permission to update it.');
+    });
+  });
+
+  describe('DELETE /expenses/:id', () => {
+    it('should delete an expense', async () => {
+      const res = await chai
+        .request(app)
+        .delete(`/expenses/${expenseId}`)
+        .set('Authorization', `Bearer ${authToken}`);
+
+      expect(res).to.have.status(200);
+      expect(res.text).to.equal('Expense deleted!');
+    });
+
+    it('should return 404 for non-existent or unauthorized expense deletion', async () => {
+      const res = await chai
+        .request(app)
+        .delete('/expenses/nonexistent-id')
+        .set('Authorization', `Bearer ${authToken}`);
+
+      expect(res).to.have.status(404);
+      expect(res.text).to.equal('Expense not found or you do not have permission to delete it.');
+    });
+  });
+});
