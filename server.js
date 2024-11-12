@@ -5,9 +5,7 @@ const mysql = require('mysql2/promise');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 3000;app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 async function connectToDatabase() {
@@ -198,9 +196,13 @@ async function startServer() {
         }
     });
 
+
+
+
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);
     });
 }
 
 startServer().catch(err => console.error('Failed to start server:', err));
+module.exports = app; // Export the app for testing
